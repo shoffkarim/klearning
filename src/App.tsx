@@ -7,7 +7,7 @@ import '@fontsource/roboto/700.css'
 import 'normalize.css'
 import './index.css'
 import { createTheme, ThemeProvider } from '@mui/material'
-
+import { Route, Routes } from 'react-router-dom'
 const theme = createTheme({
   palette: {
     mode: 'dark',
@@ -33,8 +33,10 @@ const theme = createTheme({
 const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Header/>
-      <Main/>
+      <Header />
+      <Routes>
+        <Route path='/a' element={<Main />}/>
+      </Routes>
     </ThemeProvider>
   )
 }
