@@ -2,18 +2,17 @@ import React from 'react'
 import { Menu } from '@mui/icons-material'
 import { AppBar, IconButton, styled, Toolbar, Typography } from '@mui/material'
 
-
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-  }));
+  display: 'flex',
+  alignItems: 'center',
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(1)
+}))
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <AppBar color="primary" enableColorOnDark>
-        <StyledToolbar>
+            <StyledToolbar>
           <IconButton
             size="large"
             edge="start"
