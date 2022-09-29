@@ -13,6 +13,19 @@ const theme = createTheme({
     mode: 'dark',
     primary: {
       main: '#66176D'
+    },
+    info: {
+      main: '#1976D2'
+    }
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'transparent',
+          color: '#000'
+        }
+      }
     }
   }
 })
