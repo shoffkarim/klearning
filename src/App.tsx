@@ -8,6 +8,7 @@ import 'normalize.css'
 import './index.css'
 import { createTheme, ThemeProvider } from '@mui/material'
 import { Route, Routes } from 'react-router-dom'
+import { SortPage } from './components/sort-page'
 const theme = createTheme({
   palette: {
     mode: 'dark',
@@ -35,7 +36,8 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <Header />
       <Routes>
-        <Route path='/a' element={<Main />}/>
+        <Route path='/' element={<Main />}/>
+        <Route path='/sort' element={<SortPage />}/>
       </Routes>
     </ThemeProvider>
   )
