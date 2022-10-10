@@ -1,10 +1,11 @@
-import { Typography } from '@mui/material'
+import { Typography, Button } from '@mui/material'
 import React, { useState } from 'react'
-import { comparator, swap, unSortedArray } from '../../utils/sorting'
-import { ArrayItemStyled, ArrayListStyled, PlaygroundContainer, ButtonStyled } from './page-section.style'
+import { comparator, newArray, swap } from '../../utils/sorting'
+import { ArrayItemStyled, ArrayListStyled, PlaygroundContainer } from './page-section.style'
 
 export const PageSection: React.FC = () => {
-  const [unsortArray, setArray] = useState(unSortedArray)
+  const [unsortArray, setArray] = useState(newArray)
+
   const handleClick = (): void => {
     const arr = unsortArray.concat()
     for (let i = arr.length - 1; i > 0; i--) {
@@ -18,20 +19,20 @@ export const PageSection: React.FC = () => {
   }
 
   const handleMix = (): void => {
-    setArray(unSortedArray)
+    setArray(newArray)
   }
 
   return (
     <PlaygroundContainer>
       <ArrayListStyled>
           {unsortArray.map((item) =>
-              <ArrayItemStyled key={item.index}>
-                  <Typography variant="h4">{item.text}</Typography>
+              <ArrayItemStyled key={item} height={item}>
+                  <Typography variant="h5">{item}</Typography>
               </ArrayItemStyled>
           )}
       </ArrayListStyled>
-      <ButtonStyled variant="contained" onClick={() => handleClick()}>Sort</ButtonStyled>
-      <ButtonStyled variant="outlined" onClick={() => handleMix()}>Mix</ButtonStyled>
+      <Button variant="contained" onClick={() => handleClick()}>Sort</Button>
+      <Button variant="outlined" onClick={() => handleMix()}>Mix</Button>
     </PlaygroundContainer>
   )
 }

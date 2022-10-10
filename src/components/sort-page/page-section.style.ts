@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { Button } from '@mui/material'
 
 export const ArrayListStyled = styled.ul(() => css`
     padding: 0;
@@ -9,32 +8,26 @@ export const ArrayListStyled = styled.ul(() => css`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    respective: 500px;
+    align-items: flex-end;
+    position: relative;
+    margin-bottom: 50px;
 `)
 
-export const ArrayItemStyled = styled.li(() => css`
+export interface ArrayItemStyledType {
+  height: number
+}
 
-    @keyframes animationBack {
-        0% {
-            background-color: rgb(100%, 19%, 19%, 0)
-        }
-        50% {
-            background-color: rgb(100%, 19%, 19%, 0.5)
-        }
-        100% {
-            background-color: rgb(100%, 19%, 19%, 0)
-        }
-    }
-
+export const ArrayItemStyled = styled.li<ArrayItemStyledType>(({ height }) => css`
     border: 3px solid #000;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: ${height}px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     margin-right: 20px;
-    animation: animationBack 3s linear
+
+    // position: absolute;
 `)
 
 export const PlaygroundContainer = styled.div(() => css`
@@ -43,6 +36,6 @@ export const PlaygroundContainer = styled.div(() => css`
     align-items: flex-start;
 `)
 
-export const ButtonStyled = styled(Button)(() => css`
-    margin-top: 50px
-`)
+// export const ButtonStyled = styled(Button)(() => css`
+//     margin-top: 50px
+// `)
