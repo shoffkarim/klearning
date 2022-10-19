@@ -15,9 +15,10 @@ export const ArrayListStyled = styled.ul(() => css`
 
 export interface ArrayItemStyledType {
   height: number
+  color: string
 }
 
-export const ArrayItemStyled = styled.li<ArrayItemStyledType>(({ height }) => css`
+export const ArrayItemStyled = styled.li<ArrayItemStyledType>(({ height, color }) => css`
     border: 3px solid #000;
     width: 50px;
     height: ${height}px;
@@ -26,6 +27,7 @@ export const ArrayItemStyled = styled.li<ArrayItemStyledType>(({ height }) => cs
     justify-content: flex-end;
     align-items: center;
     margin-right: 20px;
+    background-color: ${color}
 
     // position: absolute;
 `)

@@ -26,7 +26,7 @@ export const PageSection: React.FC = () => {
     <PlaygroundContainer>
       <ArrayListStyled>
           {unsortArray.map((item) =>
-              <ArrayItemStyled key={item} height={item}>
+              <ArrayItemStyled key={item} height={item} color="rgba(17, 102, 0, 1)">
                   <Typography variant="h5">{item}</Typography>
               </ArrayItemStyled>
           )}
