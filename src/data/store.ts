@@ -1,18 +1,25 @@
-import { createStore, Store, compose, applyMiddleware, AnyAction } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+
 import { reducer } from './reducers'
 import createSagaMiddleware from 'redux-saga'
 
 const sagaMiddleware = createSagaMiddleware()
 
 declare global {
-    interface Window {
-      __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-    }
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
   }
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+}
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?? compose
 
-const enhancer = (): unknown => composeEnhancers(
-    applyMiddleware(sagaMiddleware),
+const store = createStore(
+  reducer,
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 )
 
-export const store = () => createStore(reducer, enhancer() as typeof compose)
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
+
+export default store

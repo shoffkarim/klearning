@@ -15,6 +15,7 @@
     "@types/node": "^16.11.58",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "~7.1.24",
     "@types/react-router": "^5.1.19",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/parser": "^5.38.1",
@@ -46,7 +47,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint:fix": "npx eslint --ext .ts,.tsx . --fix"
   },
   "eslintConfig": {
     "extends": [
