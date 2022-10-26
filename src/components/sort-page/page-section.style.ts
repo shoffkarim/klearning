@@ -21,7 +21,7 @@ export interface ArrayItemStyledType {
 export const ArrayItemStyled = styled.li<ArrayItemStyledType>(({ height, color }) => css`
     border: 3px solid #000;
     width: 50px;
-    height: ${height}px;
+    height: ${height * 50}px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

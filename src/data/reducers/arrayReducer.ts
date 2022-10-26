@@ -1,6 +1,6 @@
 import { ARRAY_SET_ARRAY, ARRAY_SET_LENGTH } from './../constants'
 const initial = {
-  array: [50, 200, 300, 500, 250, 100, 450, 350, 150, 400],
+  array: [],
   arrayLength: 10
 }
 

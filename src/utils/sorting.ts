@@ -1,7 +1,13 @@
-/* eslint-disable no-return-assign */
+const randomIntFromInterval = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1) + min)
 
-export const newArray = [50, 200, 300, 500, 250, 100, 450, 350, 150, 400]
+export const createArray = (length: number): number[] => {
+  const array: number[] = []
+  while (array.length < length) {
+    const number = randomIntFromInterval(1, 10)
+    if (!array.includes(number)) {
+      array.push(number)
+    }
+  }
 
-export const comparator = (a: number, b: number): number => a - b
-
-export const swap = (arr: number[], i: number, j: number): number[] => [arr[i], arr[j]] = [arr[j], arr[i]]
+  return array
+}

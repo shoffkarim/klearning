@@ -3,7 +3,7 @@ const initialState = {
   inProgress: false,
   sortingSpeed: 1,
   activeElements: [],
-  sortedElement: [],
+  sortedElements: [],
   auxiliaryElements: []
 }
 
@@ -13,19 +13,19 @@ export const comparisonReducer = (state = initialState, action: any): any => {
       return { ...initialState, sortingSpeed: state.sortingSpeed }
 
     case COMPARISON_TOGGLE_SORT:
-      return { ...initialState, inProgress: action.value }
+      return { ...state, inProgress: action.value }
 
     case COMPARISON_SET_SORTING_SPEED:
-      return { ...initialState, sortingSpeed: action.value }
+      return { ...state, sortingSpeed: action.value }
 
     case COMPARISON_SET_ACTIVE_ELEMENTS:
-      return { ...initialState, activeElements: action.value }
+      return { ...state, activeElements: action.value }
 
     case COMPARISON_SET_AUXILIARY_ELEMENTS:
-      return { ...initialState, auxiliaryElements: action.value }
+      return { ...state, auxiliaryElements: action.value }
 
     case COMPARISON_SET_SORTED_ELEMENTS:
-      return { ...initialState, sortedElements: action.value }
+      return { ...state, sortedElements: action.value }
 
     default:
       return state
