@@ -1,6 +1,10 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+export const PageSectionContainer = styled.div(() => css`
+    display: flex;
+`)
+
 export const ArrayListStyled = styled.ul(() => css`
     padding: 0;
     margin: 0;

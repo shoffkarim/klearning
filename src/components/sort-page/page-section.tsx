@@ -4,7 +4,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, shallowEqual, useSelector } from 'react-redux'
 import { SORTING_BUBBLE_SORT } from '../../data/constants'
 import { AppDispatch, RootState } from '../../data/store'
-import { ArrayItemStyled, ArrayListStyled, PlaygroundContainer } from './page-section.style'
+import { Markdown } from '../markdown'
+import { ArrayItemStyled, ArrayListStyled, PageSectionContainer, PlaygroundContainer } from './page-section.style'
 
 const ACTIVE_COLOR = '#ff5555'
 const SORTED_COLOR = '#4ed26c'
@@ -36,25 +37,28 @@ export const PageSection: React.FC = () => {
   }, [])
 
   return (
-    <PlaygroundContainer>
-      <ArrayListStyled>
-          {array.map((item: number, index: number) => {
-            const color = (sortedElements.includes(index) && SORTED_COLOR) ||
-              (activeElements.includes(index) && ACTIVE_COLOR) ||
-              (auxiliaryElements.includes(index) && AUXILIARY_COLOR) ||
-              DEFAULT_COLOR
-            return (
-              <ArrayItemStyled key={index} height={item} color={color}>
-                  <Typography variant="h5">{item}</Typography>
-              </ArrayItemStyled>
-            )
-          }
+    <PageSectionContainer>
+      <PlaygroundContainer>
+        <ArrayListStyled>
+            {array.map((item: number, index: number) => {
+              const color = (sortedElements.includes(index) && SORTED_COLOR) ||
+                (activeElements.includes(index) && ACTIVE_COLOR) ||
+                (auxiliaryElements.includes(index) && AUXILIARY_COLOR) ||
+                DEFAULT_COLOR
+              return (
+                <ArrayItemStyled key={index} height={item} color={color}>
+                    <Typography variant="h5">{item}</Typography>
+                </ArrayItemStyled>
+              )
+            }
 
-          )}
-      </ArrayListStyled>
-      <Button variant="contained" onClick={onSort}>Sort</Button>
-      <Button variant="outlined" onClick={createArray}>Mix</Button>
-    </PlaygroundContainer>
+            )}
+        </ArrayListStyled>
+        <Button variant="contained" onClick={onSort}>Sort</Button>
+        <Button variant="outlined" onClick={createArray}>Mix</Button>
+      </PlaygroundContainer>
+      <Markdown/>
+    </PageSectionContainer>
   )
 }
 
