@@ -1,4 +1,5 @@
-```function * bubbleSort (array: number[], arrayLength: number): BubbleSortType {
+```
+function * bubbleSort (array: number[], arrayLength: number): BubbleSortType {
   const completedElements = []
 
   for (let step = 0; step < arrayLength - 1; step++) {
