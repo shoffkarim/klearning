@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 import React, { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import { MarkdownContainer } from './markdown.style'
 export interface MarkdownProps {
   text?: string
 }
@@ -14,8 +15,9 @@ export const Markdown: React.FC<MarkdownProps> = ({ text }) => {
       .then((text) => setContent(text))
   })
   return (
-
-    <ReactMarkdown>{content}</ReactMarkdown>
+    <MarkdownContainer>
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </MarkdownContainer>
   )
 }
 export default Markdown
