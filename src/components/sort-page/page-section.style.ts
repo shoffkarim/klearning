@@ -12,3 +12,5 @@ export const PageSectionLeftWrapper = styled.div(() => css`
   display: grid;
   gap: 50px;
 `)
+
+export const PageSectionRightWrapper = styled.div(() => css``)
